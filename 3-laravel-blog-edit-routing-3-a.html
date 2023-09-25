@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>LARAVEL BLOG</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5 pb-5">
+        <a href="javascript:history.back()" class="fw-bold btn btn-outline-primary">Back</a>
+        <a href="2-laravel-blog-auth-ui-2.html" class="fw-bold  btn btn-success">Next</a>
+
+        <p class="h1 mt-3">3. Edit the Default Views</p>
+
+        <ol start="3">
+                <li>A. Update the app.blade.php</li>
+                <p class="fw-bold">PATH: backend>resources>views>layouts>app.blade.php</p>
+                <pre>
+                    &lt;title>{{ config('app.name') }} | @yield('title')&lt;/title>
+                </pre>
+        </ol>
+
+        <ol start="3">
+            <li>B. Optional: Remove the font family. Use the default. Comment or delete any font family declaration.</li>
+            <p class="fw-bold">PATH: backend>resources>views>layouts>app.blade.php</p>
+           
+            <pre>
+                <p class="fw-bold">UPDATE LINE #15 – 17</p>
+                &lt;!-- Fonts 
+                    &lt;link rel="dns-prefetch" href="//fonts.gstatic.com">
+                    &lt;link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+
+            </pre>
+            
+            <p class="fw-bold">PATH: backend>public>build>assets>app-71455456.css</p>
+
+            <pre>
+                /*&excl;&commat;charset "UTF-8";&commat;import"https://fonts.bunny.net/css?family=Nunito";*/
+            </pre>
+
+
+            <p>Add Font Awesome CDN. Go to cdnjs.com</p>
+            <p class="fw-bold">PATH: backend>resources>views>layouts>app.blade.php</p>
+            <pre>
+                &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;
+            </pre>
+
+
+            <p>Optional: Add the correct HTML element for the app name</p>
+            <p class="fw-bold">PATH: backend>resources>views>layouts>app.blade.php</p>
+            <pre>
+                &lt;a class="navbar-brand" href="{{ url('/') }}">
+                    &lt;h1 class="h5 mb-0">{{ config('app.name') }}&lt;/h1>
+                &lt;/a>
+            </pre>
+
+            <p>Edit the &lt;main></p>
+            <p class="fw-bold">PATH: backend>resources>views>layouts>app.blade.php</p>
+            <pre>
+                &lt;main class="py-4">
+                    &lt;div class="container">
+                        &lt;div class="row justify-content-center">
+                            &lt;div class="col-8">
+                                @yield('content')
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/main>
+            </pre>
+        </ol>
+
+    </div>
+</body>
+
+</html>

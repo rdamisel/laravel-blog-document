@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="assets/css/style.css">
+    <title>LARAVEL BLOG</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5 pb-5">
+        <a href="javascript:history.back()" class="fw-bold btn btn-outline-primary">Back</a>
+        <a href="3-laravel-blog-edit-routing-1.html" class="fw-bold  btn btn-success">Next</a>
+        
+        <p class="h1 mt-3">Auth with UI</p>
+        
+        <p class="h1 mt-3">1. Install Auth with UI</p>
+
+        <ul>
+            <li class="mb-3"> <span class="fw-bold">$ npm -v</span>
+                <ul>
+                    <li>Do this command to check if Node has already been installed.</li>
+                    <li>If not, go to <a href="https://nodejs.org/en/download/"> https://nodejs.org/en/download/ .</a> Then, download the installer.</li>
+                </ul>
+            </li>
+
+            <ol start="1">
+                <li class="mb-3"> <span class="fw-bold">$ docker-compose exec app composer require laravel/ui </span>
+                    <ul>
+                        <li>Install laravel/ui Composer package</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <ol start="2">
+                <li class="mb-3"> <span class="fw-bold">$ docker-compose exec app php artisan ui bootstrap --auth </span>
+                    <ul>
+                        <li>Generate Auth scaffolding</li>
+                        <li>Install Bootstrap scaffolding</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <ol start="3">
+                <li class="mb-3"> <span class="fw-bold">$ cd backend </span>
+                    <ul>
+                        <li>The next steps shall be done inside the backend folder because this is the location of Laravel.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <ol start="4">
+                <li class="mb-3"> <span class="fw-bold">$ npm install && npm run dev </span>
+                    <ul>
+                        <li>Install npm dependencies</li>
+                        <li>Download Bootstrap packages</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <ol start="5">
+                <li class="mb-3"> <span class="fw-bold">$ Ctrl / control + C </span>
+                    <ul>
+                        <li>Exit to be able to execute the next command</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <ol start="6">
+                <li class="mb-3"> <span class="fw-bold">$ npm run build </span>
+                    <ul>
+                        <li>Build asset files in public/build/assets</li>
+                    </ul>
+                </li>
+            </ol>
+
+
+        </ul>
+        <p class="bg-warning text-black text-center fw-bold">Once you are done running the commands above, go to web-1 or localhost:82 and click Login or Register at the upper right-hand corner.</p>
+
+    </div>
+</body>
+
+</html>

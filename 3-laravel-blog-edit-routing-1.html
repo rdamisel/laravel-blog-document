@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>LARAVEL BLOG</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5 pb-5">
+        <a href="javascript:history.back()" class="fw-bold btn btn-outline-primary">Back</a>
+        <a href="3-laravel-blog-edit-routing-2.html" class="fw-bold  btn btn-success">Next</a>
+
+        <p class="h1 mt-3">2. Edit the Default Routing</p>
+
+        <p>Configure the default routing after the user registers or logs in. We will use an <span
+                class="fw-bold">index.blade.php</span> instead of the <span class="fw-bold">home.blade.php</span>.</p>
+
+
+        <ol>
+            <li>
+                Delete <span class="fw-bold">welcome.blade.php</span> and <span class="fw-bold">home.blade.php</span>.
+                Both views will not be used.
+                <p class="fw-bold">PATH: backend>resources>views</p>
+            </li>
+        </ol>
+
+        <ol start="2">
+            <li>
+                Create a new folder: <span class="fw-bold">posts</span>
+                <br>
+                Create <span class="fw-bold">index.blade.php</span> inside. This will serve as the homepage.
+                <p class="fw-bold">PATH: backend>resources>views>posts>index.blade.php</p>
+                <p class="fw-bold fst-italic mb-0">EXPECTED OUTPUT:</p>
+                <img src="assets/images/1.png" alt="" class="img-fluid mt-0">
+            </li>
+        </ol>
+
+        <ol start="3">
+            <li>Add the basic directives in <span class="fw-bold">index.blade.php</span></li>
+            <p class="fw-bold">PATH: backend>resources>views>posts>index.blade.php</p>
+            <pre>
+                @extends('layouts.app')
+                @section('title', 'Home')
+                @section('content')
+                &lt;div style="margin-top: 100px">
+                    &lt;h2 class="text-muted text-center">No posts yet.&lt;/h2>
+                    &lt;p class="text-center">
+                        &lt;a href="#" class="text-decoration-none">Create a new post&lt;/a>
+                    &lt;/p>
+                &lt;/div>
+                @endsection
+            </pre>
+        </ol>
+
+        <ol start="4">
+            <li>Edit the <span class="fw-bold">index() method</span> of <span class="fw-bold">HomeController</span>.
+                This is temporary. We will use <span class="fw-bold">PostController</span> later for the index.</li>
+            <p class="fw-bold">PATH: backend>app>Http>Controllers>HomeController.php</p>
+            <pre>
+                public function index(){
+                    return view('posts.index');
+                }
+                </pre>
+        </ol>
+    </div>
+</body>
+
+</html>

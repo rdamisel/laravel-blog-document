@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>LARAVEL BLOG</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5 pb-5">
+        <a href="javascript:history.back()" class="fw-bold btn btn-outline-primary">Back</a>
+        <a href="3-laravel-blog-edit-routing-3-a.html" class="fw-bold  btn btn-success">Next</a>
+
+        <p class="h1 mt-3">2. Edit the Default Routing</p>
+
+        <p>Configure the default routing after the user registers or logs in. We will use an <span
+                class="fw-bold">index.blade.php</span> instead of the <span class="fw-bold">home.blade.php</span>.</p>
+
+        <ol start="5">
+            <li>Edit the routes file.</li>
+            <p class="fw-bold">PATH: backend>routes>web.php</p>
+            <pre>
+                        <span class="fw-bold">use App\Http\Controllers\HomeController;</span>
+        
+                        Auth::routes();
+        
+                        Route::group(['middleware' => 'auth'], function(){
+                            // Routes within this group require authentication
+                            Route::get('/', [HomeController::class, 'index'])->name('index');
+                        });
+                        
+                    </pre>
+
+            <ul>
+                <li>We are going to create a route group. All routes inside this group may be accessed by <span
+                        class="fw-bold">authenticated users</span> only.</li>
+                <li>The default login system has a middleware called <span class="fw-bold">Auth</span> that verifies the
+                    user of your application is <span class="fw-bold">authenticated</span>. If the user is not <span
+                        class="fw-bold">authenticated</span>, the middleware will redirect the user to the login page.
+                    However, if the user is <span class="fw-bold">authenticated</span>, the middleware will allow the
+                    request to proceed into the app.</li>
+            </ul>
+
+        </ol>
+
+        <ol start="6">
+            <li>Change the default route after login and register.</li>
+            <p>By default, each time we register a new <span class="fw-bold">user</span> or <span
+                    class="fw-bold">login</span>, we are redirected to ‘/home’. Set the path to the “<span
+                    class="fw-bold">home</span>”.</p>
+
+            <p class="fw-bold">PATH: backend>app>Providers>RouteServiceProvider.php</p>
+
+            <pre>
+                public const HOME = '/';
+            </pre>
+
+            <ul>
+                <li>In Laravel, the public const <span class="fw-bold">HOME = '/';</span> line of code is used to define
+                    the default URL that users will be redirected to after successful authentication, such as after
+                    <span class="fw-bold">logging in</span> or <span class="fw-bold">registering</span>.</li>
+                <li>Try to register a new user. Make sure it will redirect to the index view (localhost:82/). Log out
+                    then log in. Make sure it will redirect to the index view.</li>
+            </ul>
+
+
+        </ol>
+
+    </div>
+</body>
+
+</html>

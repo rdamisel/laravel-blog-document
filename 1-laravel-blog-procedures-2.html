@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="assets/css/style.css">
+    <title>LARAVEL BLOG</title>
+</head>
+
+<body>
+    <div class="container mt-5 mb-5 pb-5">
+        <a href="javascript:history.back()" class="fw-bold btn btn-outline-primary">Back</a>
+        <a href="2-laravel-blog-auth-ui-1.html" class="fw-bold  btn btn-success">Next</a>
+        <p class="h1 mt-3">2. Edit the users table migration</p>
+        <p class="fw-bold">PATH: backend>database>migrations</p>
+
+        <pre>
+            public function up()
+            {
+                Schema::create('users', function (Blueprint $table) {
+                    $table->id();
+                    $table->string('name', 50);
+                    $table->string('email')->unique();
+                    $table->string('avatar', 50)->nullable();
+                    $table->string('password');
+                    $table->timestamps();
+                });
+            }
+        </pre>
+
+        <p>Since we already migrated during setup, we have to rollback and migrate again.</p>
+        <p class="fw-bold">To do both in one command:</p>
+
+        <ul>
+            <li class="fw-bold font-monospace fs-5">$ docker-compose exec app php artisan migrate:fresh</li>
+        </ul>
+    </div>
+</body>
+
+</html>
